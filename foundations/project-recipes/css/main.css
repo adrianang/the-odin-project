@@ -1,0 +1,33 @@
+body {
+  background-color: #CCFF00;
+  font-family: sans-serif;
+}
+
+h1, h2 {
+  color: #18191A;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+h2 {
+  background-color: #FBFBFB;
+  color: #3B7080;
+  font-size: 2em;
+}
+
+ul li, ol li {
+  color: #18191A;
+}
+
+img {
+  height: auto;
+  width: 600px;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
