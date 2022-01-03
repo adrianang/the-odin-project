@@ -63,15 +63,18 @@ nav ul a {
   font-weight: 300;
 }
 
-.hero-sign-up-btn {
+.btn {
   background-color: #3882F6;
   color: #FFFFFF;
   text-decoration: none;
   padding: 8px 36px;
-  margin: 16px 0 0 0;
-  display: inline-block;
   border-radius: 8px;
   font-weight: 700;
+}
+
+.hero-sign-up-btn {
+  margin: 16px 0 0 0;
+  display: inline-block;
 }
 
 .hero-img-container {
@@ -136,4 +139,32 @@ nav ul a {
   font-weight: 700;
   text-align: right;
   margin: 0 24px 0 0;
+}
+
+.cta {
+  background-color: #FFFFFF;
+  padding: 100px 264px;
+}
+
+.cta-banner {
+  background-color: #3882F6;
+  color: #FFFFFF;
+  padding: 54px 122px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-btn {
+  border: 2px solid #FFFFFF;
+}
+
+footer {
+  background-color: #1F2937;
+  color: #F9FAF8;
+  padding: 42px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
