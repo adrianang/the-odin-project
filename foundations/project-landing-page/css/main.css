@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
 
 * {
   margin: 0;
@@ -7,6 +7,7 @@
   font-family: 'Roboto', sans-serif;
 }
 
+/* styling for header section */
 header, nav ul {
   display: flex;
   align-items: center;
@@ -14,7 +15,6 @@ header, nav ul {
 
 header {
   background-color: #1F2937;
-  color: #FFFFFF;
   justify-content: space-between;
   padding: 24px 264px;
 }
@@ -26,12 +26,10 @@ header {
 }
 
 nav ul {
-  list-style: none;
-  text-decoration: none;
-  padding: 0;
-  gap: 16px;
   font-size: 18px;
   font-weight: 300;
+  list-style: none;
+  gap: 16px;
 }
 
 nav ul a {
@@ -39,15 +37,15 @@ nav ul a {
   text-decoration: none;
 }
 
+/* styling for hero section */
 .hero {
   background-color: #1F2937;
+  padding: 116px 264px 140px 264px;
   display: flex;
   gap: 48px;
-  padding: 96px 264px 140px 264px;
 }
 
 .hero-details {
-  font-size: 18px;
   flex: 1;
 }
 
@@ -55,6 +53,7 @@ nav ul a {
   color: #F9FAF8;
   font-size: 48px;
   font-weight: 900;
+  margin: 0 0 8px 0;
 }
 
 .hero-text {
@@ -80,22 +79,26 @@ nav ul a {
 .hero-img-container {
   background-color: #6D747D;
   color: #FFFFFF;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
 }
 
+/* styling for random information section */
 .info {
   background-color: #FFFFFF;
   padding: 54px 264px 126px 264px;
 }
 
+.info-header, .info-block {
+  text-align: center;
+}
+
 .info-header {
   color: #1F2937;
   font-size: 36px;
-  font-weight: 700;
-  text-align: center;
+  font-weight: 900;
   margin: 0 0 56px 0;
 }
 
@@ -110,21 +113,21 @@ nav ul a {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 .info-block-img-container {
   border: 4px solid #3882F6;
   border-radius: 16px;
-  height: 200px;
+  height: 188px;
   width: 100%;
   margin: 0 0 12px 0;
 }
 
+/* styling for quote section */
 .quote {
   background-color: #E5E7EB;
   color: #1F2937;
-  padding: 138px 264px 108px 264px;
+  padding: 138px 386px 108px 386px;
 }
 
 .quote-text {
@@ -141,6 +144,7 @@ nav ul a {
   margin: 0 24px 0 0;
 }
 
+/* styling for call-to-action section */
 .cta {
   background-color: #FFFFFF;
   padding: 100px 264px;
@@ -160,6 +164,7 @@ nav ul a {
   border: 2px solid #FFFFFF;
 }
 
+/* styling for footer section */
 footer {
   background-color: #1F2937;
   color: #F9FAF8;
