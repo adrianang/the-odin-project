@@ -6,6 +6,7 @@ function initializeCanvas(size) {
   const strokeColorButtons = document.querySelectorAll('.stroke-color-btn');
   const defaultStrokeColor = document.querySelector('#default-stroke-btn');
   const randomStrokeColor = document.querySelector('#random-stroke-btn');
+  const burntStrokeColor = document.querySelector('#burn-stroke-btn');
   let currentStrokeColor = 'default';
   let currentSize = size;
 
@@ -27,14 +28,21 @@ function initializeCanvas(size) {
   defaultStrokeColor.addEventListener('click', () => {
     removePixels(canvas);
     currentStrokeColor = 'default';
-    toggleDisabledBtnAttr(strokeColorButtons);
+    disableCurrentBtn(strokeColorButtons, currentStrokeColor);
     newCanvas(canvas, currentSize, currentStrokeColor);
   })
 
   randomStrokeColor.addEventListener('click', () => {
     removePixels(canvas);
     currentStrokeColor = 'random';
-    toggleDisabledBtnAttr(strokeColorButtons);
+    disableCurrentBtn(strokeColorButtons, currentStrokeColor);
+    newCanvas(canvas, currentSize, currentStrokeColor);
+  });
+
+  burntStrokeColor.addEventListener('click', () => {
+    removePixels(canvas);
+    currentStrokeColor = 'burnt';
+    disableCurrentBtn(strokeColorButtons, currentStrokeColor);
     newCanvas(canvas, currentSize, currentStrokeColor);
   });
 }
@@ -54,11 +62,33 @@ function newCanvas(canvas, size, strokeColor) {
       } else if (strokeColor === 'random' && !canvasPixel.style.backgroundColor) {
         canvasPixel.style.backgroundColor =
           `rgb(${getRandomRGBVal()}, ${getRandomRGBVal()}, ${getRandomRGBVal()})`;
+      } else if (strokeColor === 'burnt') {
+        if (!canvasPixel.style.backgroundColor) {
+          canvasPixel.style.backgroundColor =
+            `rgba(24, 24, 24, 0.1)`;
+        } else {
+          let currentAlphaVal =
+            Number(canvasPixel.style.backgroundColor.slice(-4, -1));
+          if (currentAlphaVal < 1.0) {
+            canvasPixel.style.backgroundColor =
+              `rgba(24, 24, 24, ${currentAlphaVal + 0.1})`;
+          }
+        }
       }
     });
 
     canvas.appendChild(canvasPixel);
   }
+}
+
+function disableCurrentBtn(buttons, currentStrokeColor) {
+  buttons.forEach(button => {
+    if (button.getAttribute('data-key') === currentStrokeColor) {
+      button.setAttribute('disabled', 'true');
+    } else {
+      button.removeAttribute('disabled');
+    }
+  });
 }
 
 function getRandomRGBVal() {
@@ -69,8 +99,4 @@ function removePixels(canvas) {
   while (canvas.firstChild) {
     canvas.firstChild.remove();
   }
-}
-
-function toggleDisabledBtnAttr(buttons) {
-  buttons.forEach(button => button.toggleAttribute('disabled'));
 }
