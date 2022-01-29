@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,59 @@
 
 #canvas {
   display: grid;
-  height: 480px;
-  width: 480px;
-  border: 1px black solid;
+  height: 600px;
+  width: 600px;
+  border: 1px rgb(24, 24, 24) solid;
+}
+
+#main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+  height: 100vh;
+}
+
+#left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#left-container,
+#clear-btn {
+  font-family: 'Readex Pro', sans-serif;
+  text-align: center;
+}
+
+#clear-btn {
+  padding: 4px 0;
+  background-color: #FFFFFF;
+  border: 2px #008ECC solid;
+  border-radius: 24px;
+  color: #008ECC;
+  transition: background-color 0.2s ease,
+              color 0.2s ease;
+}
+
+#clear-btn:hover {
+  background-color: #008ECC;
+  color: #FFFFFF;
+}
+
+#stroke-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stroke-color-btn {
+  padding: 8px 12px;
+  background-color: #FFFFFF;
+  border: 2px #AAAAAA solid;
+  border-radius: 24px;
+  transition: border 0.2s ease;
+}
+
+.stroke-color-btn:disabled {
+  border: 2px rgb(24, 24, 24) solid;
 }

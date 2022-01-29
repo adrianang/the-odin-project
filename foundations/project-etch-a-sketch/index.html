@@ -8,19 +8,27 @@
 </head>
 
 <body>
-  <h1>Etch-a-Sketch</h1>
+  <div id="main-container">
+    <div id="left-container">
+      <h1>Etch-a-Sketch</h1>
+      <button id="clear-btn">New Board</button>
+      <div id="stroke-btn-container">
+        <button id="default-stroke-btn"
+                class="stroke-color-btn"
+                data-key="default"
+                disabled>✒️ ⬛</button>
+        <button id="random-stroke-btn"
+                class="stroke-color-btn"
+                data-key="random">🌈 🖌️</button>
+        <button id="burn-stroke-btn"
+                class="stroke-color-btn"
+                data-key="burnt">🕯️ 🔥</button>
+      </div>
+    </div>
 
-  <button id="clear-btn">Clear</button>
-  <div id="canvas"></div>
-  <button id="default-stroke-btn"
-          class="stroke-color-btn"
-          data-key="default"
-          disabled>Default/Black</button>
-  <button id="random-stroke-btn"
-          class="stroke-color-btn"
-          data-key="random">Random Colors</button>
-  <button id="burn-stroke-btn"
-          class="stroke-color-btn"
-          data-key="burnt">Burn Effect</button>
+    <div id="right-container">
+      <div id="canvas"></div>
+    </div>
+  </div>
 </body>
 </html>
