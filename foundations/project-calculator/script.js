@@ -31,6 +31,14 @@ function initializeCalculator() {
 
   operators.forEach((operatorBtn) => {
     operatorBtn.addEventListener('click', () => {
+      // Replaces operator to apply without switching value in construction
+      if (["+", "-", "*", "/"].includes(displayValue[displayValue.length - 1])) {
+        displayValue = displayValue.slice(0, -1) + operatorBtn.textContent;
+        operatorToApply = operatorBtn.getAttribute('data-action');
+        updateDisplayValue(display, displayValue);
+        return;
+      }
+
       if (result) {
         value1 = result;
         value2 = '';
