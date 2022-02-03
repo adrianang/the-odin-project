@@ -17,6 +17,7 @@ function initializeCalculator() {
   numbers.forEach((numberBtn) => {
     numberBtn.addEventListener('click', () => {
       if (valueInConstruction === '1') {
+        if (result) { result = '' };
         value1 += numberBtn.getAttribute('data-value');
         displayValue = value1;
       } else if (valueInConstruction === '2') {
@@ -30,6 +31,23 @@ function initializeCalculator() {
 
   operators.forEach((operatorBtn) => {
     operatorBtn.addEventListener('click', () => {
+      if (result) {
+        value1 = result;
+        value2 = '';
+        result = '';
+        displayValue = value1;
+      }
+
+      if (value1 !== '' && value2 !== '') { 
+        result = operate(operatorToApply, Number(value1), Number(value2));
+        displayValue = result;
+        value1 = result;
+        value2 = '';
+        result = '';
+        operatorToApply = '';
+        valueInConstruction = '1';
+      }
+
       operatorToApply = operatorBtn.getAttribute('data-action');
       displayValue += operatorBtn.textContent;
       updateDisplayValue(display, displayValue);
