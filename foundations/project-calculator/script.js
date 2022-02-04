@@ -4,6 +4,7 @@ function initializeCalculator() {
   const display = document.querySelector('#display');
   const numbers = document.querySelectorAll('.number-val-btn');
   const operators = document.querySelectorAll('.operator-action-btn');
+  const decimalButton = document.querySelector('#decimal-btn');
   const equalsButton = document.querySelector('#equals-btn');
   const clearButton = document.querySelector('#clear-btn');
   let displayValue = '0';
@@ -23,6 +24,10 @@ function initializeCalculator() {
       } else if (valueInConstruction === '2') {
         value2 += numberBtn.getAttribute('data-value');
         displayValue = value2;
+      }
+
+      if (numberBtn.getAttribute('data-value') === '.') {
+        numberBtn.setAttribute('disabled', true);
       }
 
       updateDisplayValue(display, displayValue);
@@ -47,7 +52,7 @@ function initializeCalculator() {
       }
 
       if (value1 !== '' && value2 !== '') { 
-        result = operate(operatorToApply, Number(value1), Number(value2));
+        result = getResult(operatorToApply, value1, value2);
         displayValue = result;
         value1 = result;
         value2 = '';
@@ -56,6 +61,7 @@ function initializeCalculator() {
         valueInConstruction = '1';
       }
 
+      decimalButton.removeAttribute('disabled');
       operatorToApply = operatorBtn.getAttribute('data-action');
       displayValue += operatorBtn.textContent;
       updateDisplayValue(display, displayValue);
@@ -69,7 +75,7 @@ function initializeCalculator() {
   });
 
   equalsButton.addEventListener('click',  () => {
-    result = operate(operatorToApply, Number(value1), Number(value2));
+    result = getResult(operatorToApply, value1, value2);
     displayValue = result;
     updateDisplayValue(display, displayValue);
 
@@ -78,6 +84,7 @@ function initializeCalculator() {
     displayValue = '0';
     valueInConstruction = '1';
     operatorToApply = '';
+    decimalButton.removeAttribute('disabled');
   });
 
   clearButton.addEventListener('click', () => {
@@ -87,8 +94,16 @@ function initializeCalculator() {
     valueInConstruction = '1';
     operatorToApply = '';
     result = '';
+    decimalButton.removeAttribute('disabled');
     updateDisplayValue(display, displayValue);
   });
+}
+
+function getResult(operatorToApply, value1, value2) {
+  const convertedValue1 = Number(value1);
+  const convertedValue2 = Number(value2);
+  return Number(operate(operatorToApply, convertedValue1, convertedValue2)
+         .toFixed(9));
 }
 
 function updateDisplayValue(display, displayValue) {
