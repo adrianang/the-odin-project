@@ -79,7 +79,14 @@ function initializeCalculator() {
 
   equalsButton.addEventListener('click',  () => {
     result = getResult(operatorToApply, value1, value2);
-    displayValue = result;
+    if (!result) { 
+      value2 = '';
+      displayValue = '0';
+      decimalButton.removeAttribute('disabled');
+      return;
+    } else { 
+      displayValue = result;
+    }
     updateDisplayValue(display, displayValue);
 
     value1 = '';
@@ -121,6 +128,12 @@ function initializeCalculator() {
 }
 
 function getResult(operatorToApply, value1, value2) {
+  if (!value2) { return value1 }
+  if (value2 === '0' && operatorToApply === 'divide') {
+    alert('Divide by zero error! 🧐');
+    return;
+  }
+
   const convertedValue1 = Number(value1);
   const convertedValue2 = Number(value2);
   return Number(operate(operatorToApply, convertedValue1, convertedValue2)
