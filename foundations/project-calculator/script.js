@@ -7,6 +7,7 @@ function initializeCalculator() {
   const decimalButton = document.querySelector('#decimal-btn');
   const equalsButton = document.querySelector('#equals-btn');
   const clearButton = document.querySelector('#clear-btn');
+  const backspaceButton = document.querySelector('#backspace-btn');
   let displayValue = '0';
   let value1 = '';
   let value2 = '';
@@ -30,6 +31,7 @@ function initializeCalculator() {
         numberBtn.setAttribute('disabled', true);
       }
 
+      backspaceButton.removeAttribute('disabled');
       updateDisplayValue(display, displayValue);
     });
   });
@@ -62,6 +64,7 @@ function initializeCalculator() {
       }
 
       decimalButton.removeAttribute('disabled');
+      backspaceButton.setAttribute('disabled', true);
       operatorToApply = operatorBtn.getAttribute('data-action');
       displayValue += operatorBtn.textContent;
       updateDisplayValue(display, displayValue);
@@ -85,6 +88,7 @@ function initializeCalculator() {
     valueInConstruction = '1';
     operatorToApply = '';
     decimalButton.removeAttribute('disabled');
+    backspaceButton.setAttribute('disabled', true);
   });
 
   clearButton.addEventListener('click', () => {
@@ -95,6 +99,23 @@ function initializeCalculator() {
     operatorToApply = '';
     result = '';
     decimalButton.removeAttribute('disabled');
+    backspaceButton.setAttribute('disabled', true);
+    updateDisplayValue(display, displayValue);
+  });
+
+  backspaceButton.addEventListener('click', () => {
+    if (valueInConstruction === '1') {
+      if (!value1) { return };
+      value1 = value1.slice(0, -1);
+      displayValue = (value1 || 0) + operatorToApply;
+      if (!value1.includes('.')) { decimalButton.removeAttribute('disabled') };
+    } else if (valueInConstruction === '2') {
+      if (!value2) { return };
+      value2 = value2.slice(0, -1);
+      displayValue = (value2 || 0);
+      if (!value2.includes('.')) { decimalButton.removeAttribute('disabled') };
+    }
+
     updateDisplayValue(display, displayValue);
   });
 }
