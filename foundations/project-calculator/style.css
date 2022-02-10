@@ -1,5 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body,
+button {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #F6F6F6;
+}
+
+button {
+  color: #FFFFFF;
+  border: none;
+  font-size: 20px;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:active {
+  opacity: 0.85;
+}
+
+#main-container {
+  height: 440px;
+  width: 310px;
+  background-color: #353535;
+  border-radius: 12px;
+  padding: 12px 18px;
+  box-shadow: 4px 4px 6px rgba(24, 24, 24, 0.2);
+}
+
+#calculator-container > * {
+  margin-bottom: 8px;
+}
+
+#calculator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px;
+  color: #FFFFFF;
+}
+
+#calculator-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+#calculator-header .header-logo {
+  height: 90%;
+  width: auto;
+}
+
+#calculator-header .header-span {
+  color: #CE973E;
+}
+
+#display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  padding: 12px;
+  background-color: #92A88C;
+  color: #353535;
+  font-style: oblique;
+  font-size: 48px;
+  font-weight: 700;
+  overflow: hidden;
+  box-shadow: inset 0 0 2px #353535;
+}
+
+#clear-btns-container,
+#calculator-btns {
+  display: flex;
+  gap: 8px;
+}
+
+#clear-btns-container {
+  height: 52px;
+}
+
+#clear-btns-container button {
+  flex: 1 1 0;
+  background-color: #A4A4A4;
+  letter-spacing: 1px;
+}
+
+#numbers,
+#operators {
+  display: grid;
+  grid-row-gap: 8px;
+}
+
+#numbers {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 52px);
+  grid-column-gap: 8px;
+  flex: 3 1 auto;
+}
+
+.number-val-btn {
+  background-color: #848484;
+}
+
+#equals-btn,
+.operator-action-btn {
+  font-weight: 700;
+}
+
+#equals-btn {
+  background-color: #6ABFC3;
+}
+
+#operators {
+  grid-template-columns: 1fr;
+  grid-template-rows: 52px;
+  flex: 1 1 auto;
+}
+
+.operator-action-btn {
+  background-color: #CE973E;
 }

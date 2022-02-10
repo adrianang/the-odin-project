@@ -8,31 +8,47 @@
   </head>
 
   <body>
-    <h1>Calculator</h1>
-
-    <div id="container">
-      <button id="clear-btn">Clear</button>
-      <button id="backspace-btn">Backspace</button>
-      <div id="display"></div>
-      <div id="numbers">
-        <button class="number-val-btn" data-value="7">7</button>
-        <button class="number-val-btn" data-value="8">8</button>
-        <button class="number-val-btn" data-value="9">9</button>
-        <button class="number-val-btn" data-value="4">4</button>
-        <button class="number-val-btn" data-value="5">5</button>
-        <button class="number-val-btn" data-value="6">6</button>
-        <button class="number-val-btn" data-value="1">1</button>
-        <button class="number-val-btn" data-value="2">2</button>
-        <button class="number-val-btn" data-value="3">3</button>
-        <button class="number-val-btn" data-value="0">0</button>
-        <button id="decimal-btn" class="number-val-btn" data-value=".">.</button>
-      </div>
-      <div id="operators">
-        <button class="operator-action-btn" data-key="+" data-action="add">+</button>
-        <button class="operator-action-btn" data-key="-" data-action="subtract">-</button>
-        <button class="operator-action-btn" data-key="*" data-action="multiply">*</button>
-        <button class="operator-action-btn" data-key="/" data-action="divide">/</button>
-        <button id="equals-btn">=</button>
+    <div id="main-container">
+      <div id="calculator-container">
+        <div id="calculator-header">
+          <img src="./images/odin-icon.svg" class="header-logo">
+          <h1><span class="header-span">ODIN</span>.calc()</h1>
+        </div>
+        <div id="display"></div>
+        <div id="clear-btns-container">
+          <button id="clear-btn">C</button>
+          <button id="backspace-btn">CE</button>
+        </div>
+        <div id="calculator-btns">
+          <div id="numbers">
+            <button class="number-val-btn" data-value="7">7</button>
+            <button class="number-val-btn" data-value="8">8</button>
+            <button class="number-val-btn" data-value="9">9</button>
+            <button class="number-val-btn" data-value="4">4</button>
+            <button class="number-val-btn" data-value="5">5</button>
+            <button class="number-val-btn" data-value="6">6</button>
+            <button class="number-val-btn" data-value="1">1</button>
+            <button class="number-val-btn" data-value="2">2</button>
+            <button class="number-val-btn" data-value="3">3</button>
+            <button class="number-val-btn" data-value="0">0</button>
+            <button id="decimal-btn" class="number-val-btn" data-value=".">.</button>
+            <button id="equals-btn">=</button>
+          </div>
+          <div id="operators">
+            <button class="operator-action-btn"
+                    data-key="+" 
+                    data-action="add">+</button>
+            <button class="operator-action-btn"
+                    data-key="-"
+                    data-action="subtract">-</button>
+            <button class="operator-action-btn"
+                    data-key="*"
+                    data-action="multiply">×</button>
+            <button class="operator-action-btn"
+                    data-key="/"
+                    data-action="divide">÷</button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
